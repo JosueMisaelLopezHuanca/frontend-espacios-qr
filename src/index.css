@@ -1,0 +1,14 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F2EFEB;
+  margin: 0;
+}
+
+/* Paleta */
+:root {
+  --primary: #D92332;
+  --secondary: #41BFB3;
+  --light: #F2EFEB;
+  --accent1: #F28627;
+  --accent2: #F25E3D;
+}
