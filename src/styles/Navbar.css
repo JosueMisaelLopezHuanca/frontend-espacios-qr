@@ -1,0 +1,27 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  z-index: 5;
+}
+.navbar-icons span {
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50px;
+}

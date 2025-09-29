@@ -1,0 +1,78 @@
+/* ===== Tokens de color mínimos (ajústalos a tu paleta) ===== */
+:root {
+  --sb-bg: var(--color-primary);           /* rojo del sidebar */
+  --sb-fg: #ffffff;                        /* texto/iconos */
+  --sb-hov: rgba(236, 215, 215, 0.445);        /* hover suave */
+  --sb-act: rgba(216, 94, 38, 0.76);        /* activo (un poco más intenso) */
+  --sb-act-hov: rgba(255,255,255,0.26);    /* activo + hover */
+}
+
+/* ===== Sidebar base ===== */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100px;                            /* ancho base, lo cambiamos con estados */
+  height: calc(100% - 60px);
+  background: var(--sb-bg);
+  color: var(--sb-fg);
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 90;
+  padding: 15px;
+}
+
+/* Expandido/Colapsado */
+.sidebar.expanded { width: 210px; padding: 1rem; }
+.sidebar.collapsed { width: 60px; padding: 12px 8px; }
+
+/* Lista y elementos */
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar ul li { margin-bottom: 10px; }
+
+/* Link base (píldora) */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sb-fg);
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 9999px;
+  transition: background 180ms ease, transform 120ms ease, opacity 120ms ease;
+  opacity: 0.95;
+}
+.sidebar a .icon { font-size: 1.2rem; flex: 0 0 auto; }
+.sidebar a .label { white-space: nowrap; }
+
+/* Efectos pointer y active-press */
+.sidebar a:hover:not(.active-link) { background: var(--sb-hov); color: var(--sb-fg); }
+.sidebar a:active { transform: scale(0.98); opacity: 0.9; }
+
+/* Estado activo (ruta actual) */
+.active-link {
+  background: var(--sb-act);
+  color: var(--sb-fg);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+}
+.active-link:hover { background: var(--sb-act-hov); }
+
+/* Accesibilidad: focus visible con teclado */
+.sidebar a:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.45);
+  outline-offset: 2px;
+}
+
+/* Colapsado: iconos en círculos perfectos */
+.sidebar.collapsed .label { display: none; }
+.sidebar.collapsed a {
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Opcional: borde sutil a la derecha del sidebar */
+.sidebar { border-right: 1px solid rgba(255,255,255,0.12); }

@@ -1,17 +1,39 @@
+// src/components/layout/Sidebar.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom"; // <- usa NavLink para active
+import {
+  TfiLayoutSidebarLeft,
+  TfiMapAlt,
+  TfiLocationPin,
+  TfiBasketball,
+  TfiLayersAlt,
+} from "react-icons/tfi";
+import "../../styles/Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ open }) {
+  const menuItems = [
+    { label: "Macrodistritos", icon: <TfiLayoutSidebarLeft />, path: "/macrodistritos" },
+    { label: "Zonas", icon: <TfiMapAlt />, path: "/zonas" },
+    { label: "Áreas Deportivas", icon: <TfiLocationPin />, path: "/areadeportiva" },
+    { label: "Canchas", icon: <TfiBasketball />, path: "/canchas" },
+    { label: "Equipamientos", icon: <TfiLayersAlt />, path: "/equipamientos" },
+  ];
+
   return (
-    <aside className="sidebar">
-      <h2 className="sidebar-logo">LOGUITO</h2>
+    <aside className={`sidebar ${open ? "expanded" : "collapsed"}`}>
       <nav>
         <ul>
-          <li><Link to="/macrodistritos">Macrodistritos</Link></li>
-          <li><Link to="/usuarios">Usuarios</Link></li>
-          <li><Link to="/reservas">Reservas</Link></li>
-          <li><Link to="/reportes">Reportes</Link></li>
-          <li><Link to="/configuracion">Configuración</Link></li>
+          {menuItems.map((item) => (
+            <li key={item.label}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+              >
+                <span className="icon">{item.icon}</span>
+                <span className="label">{item.label}</span>
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
     </aside>
