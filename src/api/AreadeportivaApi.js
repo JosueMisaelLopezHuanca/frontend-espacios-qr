@@ -1,12 +1,12 @@
-const API_URL = "http://localhost:8032/api/macrodistrito";
+const API_URL = "http://localhost:8032/api/areasdeportivas";
 
-export async function getMacrodistritos() {
+export async function getAreadeportiva() {
   const res = await fetch(API_URL);
   if (!res.ok) throw new Error(`Error ${res.status}`);
   return res.json();
 }
 
-export async function createMacrodistrito(payload) {
+export async function createAreadeportiva(payload) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -16,7 +16,7 @@ export async function createMacrodistrito(payload) {
   return res.json();
 }
 
-export async function updateMacrodistrito(id, payload) {
+export async function updateAreadeportiva(id, payload) {
   const res = await fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -26,7 +26,7 @@ export async function updateMacrodistrito(id, payload) {
   return res.json();
 }
 
-export async function deleteMacrodistrito(id) {
+export async function deleteAreadeportiva(id) {
   const res = await fetch(`${API_URL}/${id}/eliminar`, { method: "PUT" });
   if (!res.ok) throw new Error(`Error ${res.status}`);
   return res.json();
