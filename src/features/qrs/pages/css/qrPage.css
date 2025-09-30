@@ -1,0 +1,42 @@
+.qr-page {
+  padding: 2rem;
+}
+
+.qr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.qr-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.qr-card h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.qr-card p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.qr-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
