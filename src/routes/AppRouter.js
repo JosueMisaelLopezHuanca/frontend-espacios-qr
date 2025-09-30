@@ -44,6 +44,24 @@ function AppRouter() {
             </DashboardLayout>
           }
         />
+
+        <Route
+          path="/reservas"
+          element={
+            <DashboardLayout>
+              <ReservaPage />
+            </DashboardLayout>
+          }
+        />
+
+        <Route
+          path="/reservas/:id/qrs"
+          element={
+            <DashboardLayout>
+              <QrPage />
+            </DashboardLayout>
+          }
+        />
         
       </Routes>
     </BrowserRouter>
