@@ -20,8 +20,8 @@ export default function ReservaForm({ initialData, onSave, onCancel }) {
       setHoraFin(initialData.horaFin || "");
       setEstadoReserva(initialData.estadoReserva || "Activa");
       setMontoTotal(initialData.montoTotal?.toString() || "");
-      setObservaciones(initialData.observaciones || "");
-      setClienteId(initialData.cliente?.idCliente?.toString() || "");
+      setObservaciones(initialData.observaciones || ""); // ← editable ahora
+      setClienteId(initialData.clienteId?.toString() || "");
     } else {
       const hoy = new Date().toISOString().split("T")[0];
       setFechaCreacion(hoy);
@@ -65,7 +65,7 @@ export default function ReservaForm({ initialData, onSave, onCancel }) {
       estadoReserva,
       montoTotal: parseFloat(montoTotal),
       observaciones,
-      cliente: { idCliente: parseInt(clienteId) }
+      clienteId: parseInt(clienteId)
     };
 
     onSave(payload);

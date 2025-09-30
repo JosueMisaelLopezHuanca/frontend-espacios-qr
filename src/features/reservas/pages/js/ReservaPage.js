@@ -43,10 +43,17 @@ export default function ReservaPage() {
   async function handleDelete(id) {
     if (!window.confirm("¿Desactivar esta reserva?")) return;
     try {
-      const itemToUpdate = items.find(x => x.idReserva === id);
+      const item = items.find(x => x.idReserva === id);
       const updated = {
-        ...itemToUpdate,
+        idReserva: item.idReserva,
+        fechaCreacion: item.fechaCreacion,
+        fechaReserva: item.fechaReserva,
+        horaInicio: item.horaInicio,
+        horaFin: item.horaFin,
         estadoReserva: "Inactiva",
+        montoTotal: item.montoTotal,
+        observaciones: item.observaciones,
+        clienteId: item.clienteId || item.cliente?.idPersona
       };
       await reservaService.updateReserva(id, updated);
       setItems(prev =>
@@ -55,6 +62,7 @@ export default function ReservaPage() {
         )
       );
     } catch (err) {
+      console.error("Error al desactivar reserva:", err);
       alert("No se pudo desactivar");
     }
   }
@@ -62,9 +70,17 @@ export default function ReservaPage() {
   async function handleSave(payload) {
     try {
       const dataToSend = {
-        ...payload,
         idReserva: editing?.idReserva,
+        fechaCreacion: payload.fechaCreacion,
+        fechaReserva: payload.fechaReserva,
+        horaInicio: payload.horaInicio,
+        horaFin: payload.horaFin,
+        estadoReserva: payload.estadoReserva,
+        montoTotal: payload.montoTotal,
+        observaciones: payload.observaciones,
+        clienteId: payload.clienteId
       };
+
       if (editing?.idReserva) {
         const updated = await reservaService.updateReserva(editing.idReserva, dataToSend);
         setItems(prev =>
@@ -79,6 +95,7 @@ export default function ReservaPage() {
       setShowForm(false);
       setEditing(null);
     } catch (err) {
+      console.error("Error guardando reserva:", err);
       alert("Error guardando reserva");
     }
   }
@@ -126,7 +143,7 @@ export default function ReservaPage() {
                 items.map(item => (
                   <tr key={item.idReserva}>
                     <td>{item.idReserva}</td>
-                    <td>{item.cliente?.nombre}</td>
+                    <td>{item.cliente?.nombre || item.clienteId}</td>
                     <td>{item.fechaCreacion}</td>
                     <td>{item.fechaReserva}</td>
                     <td>{item.horaInicio}</td>

@@ -92,8 +92,9 @@ export default function QrPage() {
                 <p><strong>Generado:</strong> {qr.fechaGeneracion}</p>
                 <p><strong>Expira:</strong> {qr.fechaExpiracion}</p>
                 <p><strong>Estado:</strong> {qr.estado ? "Activo" : "Inactivo"}</p>
-                <p><strong>Control:</strong> {qr.usuarioControl?.idPersona}</p>
-                <p><strong>Invitado:</strong> {qr.invitado?.idPersona}</p>
+                {/*<p><strong>Control:</strong> {qr.usuarioControl?.nombre || qr.usuarioControl?.idPersona}</p>
+                <p><strong>Invitado:</strong> {qr.invitado?.nombre || qr.invitado?.idPersona}</p>
+                <p><strong>Cliente:</strong> {qr.reserva?.cliente?.nombre || qr.reserva?.clienteId}</p> */}
                 <div className="qr-actions">
                   <button className="btn btn-secondary" onClick={() => openEdit(qr)}>Editar</button>
                   <button className="btn btn-danger" onClick={() => handleDelete(qr.idQr)}>Eliminar</button>
