@@ -5,6 +5,8 @@ import DashboardLayout from "../components/layout/DashboardLayout";
 import MacrodistritoPage from "../features/macrodistritos/pages/MacrodistritoPage";
 import ZonaPage from "../features/zonas/pages/ZonaPage";
 import AreadeportivaPage from "../features/areadeportiva/pages/AreadeportivaPage";
+import ReservaPage from "../features/reservas/pages/js/ReservaPage";
+import QrPage from "../features/qrs/pages/js/QrPage";
 //import UsuarioPage from "../features/usuarios/pages/UsuarioPage";
 //import ReservaPage from "../features/reservas/pages/ReservaPage";
 //import ReportePage from "../features/reportes/pages/ReportePage";

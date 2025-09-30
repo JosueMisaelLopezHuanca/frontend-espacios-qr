@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8038/api/qr";
+const API_URL = "http://localhost:8032/api/qr";
 
 export async function getQRsByReserva(idReserva) {
   const res = await fetch(`${API_URL}/reserva/${idReserva}`);

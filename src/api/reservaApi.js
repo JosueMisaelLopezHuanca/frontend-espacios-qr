@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8038/api/reservas";
+const API_URL = "http://localhost:8032/api/reservas";
 
 export async function getReservas() {
   const res = await fetch(API_URL);
